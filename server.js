@@ -12,6 +12,19 @@ const pool = new Pool({
 
 require("dotenv").config();
 
+cron.schedule('0 0 * * *', async () => {
+  console.log('Running daily cleanup job...');
+  try {
+    await pool.query(`
+      DELETE FROM vessels
+      WHERE timestamp < (NOW() AT TIME ZONE 'UTC') - INTERVAL '1 day';
+    `);
+    console.log('Old data successfully deleted.');
+  } catch (error) {
+    console.error('Error during cleanup:', error);
+  }
+});
+
 const app = express();
 const PORT = process.env.PORT || 5020;
 const server = app.listen(PORT, () => {
