@@ -5,7 +5,7 @@ This is an Express backend  created for the front end project [`orca-frontend`](
 ## Tech Stack
 - Frontend: React Native with MapLibreGL for interactive maps
 - Backend: Node.js with WebSocket server and PostgreSQL database
-- Database: PostgreSQL for storing vessel data and locations
+- Database: PostgreSQL + PostGIS for storing vessel data and locations
 - WebSocket: Real-time communication for sending and receiving vessel data
 
 
@@ -15,7 +15,7 @@ This is an Express backend  created for the front end project [`orca-frontend`](
 
 - Node.js (v14 or higher)
 - npm (v6 or higher)
-- PostgreSQL (for backend database)
+- PostgreSQL with PostGIS extension (for backend database)
 
 ### Installation
 
